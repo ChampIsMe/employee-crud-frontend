@@ -1,10 +1,10 @@
 import {describe, it} from 'vitest';
 import {render, screen} from '@testing-library/react';
-import CustomTextInput from './CustomTextInput.jsx';
+import TextInput from './TextInput.jsx';
 
 describe('Test custom input', () => {
   it('should show input value', () => {
-    render(<CustomTextInput/>)
+    render(<TextInput/>)
     //todo: implement
     screen.debug()
   });
