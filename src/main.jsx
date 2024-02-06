@@ -1,13 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import {store} from './ReduxImpl/store';
+import {Provider} from 'react-redux';
+import {persistStore} from 'redux-persist'
 import {createBrowserRouter, Navigate, redirect, RouterProvider} from 'react-router-dom';
 import EmployeeList from './components/Employees/EmployeeList.jsx';
 import EmployeeDetails from './components/Employees/EmployeeDetails.jsx';
 import EmptyEmployeeList from './components/Employees/EmptyEmployeeList.jsx';
 import ErrorPage from './components/common/ErrorPage.jsx';
 import App from './App.jsx';
+import {PersistGate} from 'redux-persist/integration/react';
 
+let persistor = persistStore(store)
 const router = createBrowserRouter([
   {
     path: '/app',
@@ -23,7 +28,7 @@ const router = createBrowserRouter([
         path: '/app/employees/:employeeId',
         element: <EmployeeDetails/>,
         loader: ({ params: { employeeId } }) => {
-          if (!employeeId) {
+          if (!employeeId || !Number.isNaN(employeeId)) {
             return redirect('/app/employees');
           }
           return null;
@@ -52,7 +57,12 @@ const router = createBrowserRouter([
   future: { v7_normalizeFormMethod: true }
 })
 ReactDOM.createRoot(document.getElementById('root')).render(
+  //todo: Uncomment strict mode. It's currently causing components to render twice
   <React.StrictMode>
-    <RouterProvider router={router}/>
-  </React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router}/>
+      </PersistGate>
+    </Provider>
+   </React.StrictMode>
 )

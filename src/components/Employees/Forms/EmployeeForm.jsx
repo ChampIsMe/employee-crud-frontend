@@ -2,7 +2,7 @@ import React from 'react';
 import TextInput from '../../FormComponents/TextInput.jsx';
 import {useFieldArray, useForm} from "react-hook-form"
 import * as yup from "yup";
-import {array, date, number, object, string} from "yup";
+import {array, date, object, string} from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 import DateInput from '../../FormComponents/DateInput.jsx';
 import SecondaryButton from '../../common/SecondaryButton.jsx';
@@ -14,24 +14,26 @@ import {makeSelectOptions} from '../../../helpers/AppUtil.js';
 import IconButton from '../../common/IconButton.jsx';
 import {RiDeleteBin6Fill} from 'react-icons/ri';
 import {v4 as uuidV4} from 'uuid';
+import {useCreateEmployeeMutation} from '../../../ReduxImpl/Reducers/EployeeSlice.js';
 
 const EmployeeSchema = object().shape({
-  first_name: string().required('Field is required'),
-  last_name: string().required('Field is required'),
-  contact_number: string().required(),
-  email: string().email('Please enter a valid email address').required(),
+  first_name: string().min(2).max(30).required('Field is required'),
+  last_name: string().min(2).max(30).required('Field is required'),
+  contact_number: string().max(12).matches(/^[0-9]/, { message: 'Invalid postal code' }).required(),
+  email: string().max(100).email('Please enter a valid email address').required(),
   dob: date().max(new Date()).required('Field is required'),
-  address: string().required('Field is required'),
-  city: string().required('Field is required'),
-  postal_code: string().required('Field is required'),
-  country: string().required('Field is required'),
+  address: string().max(200).required('Field is required'),
+  city: string().max(100).required('Field is required'),
+  postal_code: string().trim().matches(/^[0-9]/, { message: 'Invalid postal code' }).required('Field is required'),
+  country: string().max(100).required('Field is required'),
   skills: array().of(yup.object({
     skill: string().required('Field is required'),
-    yrs: number().min(1).max(30).required('Field is required'),
+    yrs: string().min(1).max(3).required('Field is required'),
     seniority: string().required('Field is required')
-  })).min(1,'At least one skill is required').max(5,'Max of 5 skills are required').required('At least one skill is required')
+  })).min(1, 'At least one skill is required').max(5, 'Max of 5 skills are required').required('At least one skill is required')
 });
 const EmployeeForm = ({ toggle }) => {
+  const  [createEmployee]  = useCreateEmployeeMutation()
   const { control, register, handleSubmit, formState } = useForm({
     resolver: yupResolver(EmployeeSchema),
     defaultValues: { skills: [{ skill: '', yrs: '', seniority: '', id: uuidV4() }] }
@@ -41,9 +43,10 @@ const EmployeeForm = ({ toggle }) => {
     rules: { minLength: 1, maxLength: 5 },
     control
   });
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     //todo: Implement API
     console.log(data)
+    await createEmployee(data)
     toggle()
   };
   return (
@@ -138,8 +141,8 @@ const EmployeeForm = ({ toggle }) => {
                            defaultValue={skill}/>
                 <TextInput id={`skills.${index}.yrs`}
                            formState={formState}
-                           rootClasses={'lg:flex-1 xs:w-full'}
-                           type={'number'}
+                           rootClasses={'lg:basis-[20%] xs:w-full'}
+                           type={'text'}
                            required={true}
                            label={'Yrs Exp'}
                            placeHolder={'1'}
@@ -151,7 +154,7 @@ const EmployeeForm = ({ toggle }) => {
                              required={true}
                              label={'Seniority Rating'}
                              placeHolder={2}
-                             options={makeSelectOptions(['Select','Junior', 'Mid', 'Senior'])}
+                             options={makeSelectOptions(['Select', 'Beginner', 'Junior', 'Mid', 'Senior', 'Expert'])}
                              register={register}
                              defaultValue={seniority}/>
               </div>
@@ -172,7 +175,7 @@ const EmployeeForm = ({ toggle }) => {
           <PrimaryButton text={'Save Changes'}
                          type={'submit'}
                          extraClasses={'mx-auto'}
-                         icon={<IoAddCircle/>}/>
+                         icon={<IoAddCircle size={28}/>}/>
         </div>
       </form>
     </div>
