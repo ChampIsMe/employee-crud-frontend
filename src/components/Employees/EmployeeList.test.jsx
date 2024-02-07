@@ -1,26 +1,23 @@
-import {beforeAll, describe, it} from 'vitest';
+import {afterEach, beforeAll, describe, it} from 'vitest';
 import {render, screen} from '@testing-library/react';
 import EmployeeList from './EmployeeList.jsx';
+import employees from './SampleEmployeeData.json'
 
-describe('App.js', () => {
+describe('EmployeeList', () => {
   beforeAll(() => {
-    //Mock window.matchMedia
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: vi.fn().mockImplementation((query) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: vi.fn(),
-        removeListener: vi.fn(),
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn()
-      }))
-    });
+    vi.mock('react-router-dom', () => ({
+      useOutletContext: () => ({ employees, isSuccess: false, isError: false, isLoading: false }),
+      useNavigate: () => ({ state: employees[0] })
+    }));
   });
-  it('renders H1 text', () => {
-    render(<EmployeeList/>)
-    expect(screen.getByText(/Add tailwinds to project and set up dark\/light theme/i, { exact: true })).toBeInTheDocument()
+  afterEach(() => {
+    vi.clearAllMocks();
   })
+  it('Should render every first_name in the provided list', () => {
+    render(<EmployeeList/>)
+    for (let i = 0; i < employees.length; i++) {
+      expect(screen.getByText(employees[i].first_name, { exact: true })).toBeInTheDocument()
+    }
+  })
+  //todo: Other core tests are ignored for the purposes of brevity
 })

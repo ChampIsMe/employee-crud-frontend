@@ -6,6 +6,5 @@ describe('Test custom input', () => {
   it('should show input value', () => {
     render(<TextInput/>)
     //todo: implement
-    screen.debug()
   });
 })

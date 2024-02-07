@@ -5,7 +5,7 @@ import {Outlet, useNavigate} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import sampleList from './SampleEmployeeData.json';
-import {useGetEmployeesQuery} from '../../ReduxImpl/Reducers/EployeeSlice.js';
+import {useGetEmployeesQuery} from '../../ReduxImpl/Reducers/EmployeeSlice.js';
 
 const EmployeeHome = () => {
   const { isDarkMode, changeTheme } = useAppTheme();

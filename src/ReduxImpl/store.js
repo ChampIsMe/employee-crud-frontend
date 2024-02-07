@@ -3,7 +3,7 @@ import {persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import {encryptTransform} from 'redux-persist-transform-encrypt';
 import {generateString, getCookie, removeCookie, setCookie} from '../helpers/AppUtil.js';
-import {EmployeeSlice} from './Reducers/EployeeSlice.js';
+import {EmployeeSlice} from './Reducers/EmployeeSlice.js';
 
 const environment = import.meta.env.VITE_APP_CURRENT_ENV
 let existingpass = getCookie('storepass')

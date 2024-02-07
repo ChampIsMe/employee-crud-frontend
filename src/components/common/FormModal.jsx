@@ -3,6 +3,7 @@ import React from 'react';
 const FormModal = ({ visible, toggle, children, title, maskClosable, closable }) => {
   return visible ? (
     <div id={'modalwrapper'}
+         data-testid={'test-modalwrapper'}
          className={'fixed inset-0 bg-black dark:bg-black bg-opacity-25 dark:bg-opacity-60 backdrop-blur-sm dark:backdrop-blur-0 flex justify-center items-center w-full overflow-y-auto'}
          onClick={(event) => {
            //Prevent toggling except for the overlay

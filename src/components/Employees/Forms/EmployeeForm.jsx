@@ -14,7 +14,7 @@ import {makeSelectOptions} from '../../../helpers/AppUtil.js';
 import IconButton from '../../common/IconButton.jsx';
 import {RiDeleteBin6Fill} from 'react-icons/ri';
 import {v4 as uuidV4} from 'uuid';
-import {useCreateEmployeeMutation} from '../../../ReduxImpl/Reducers/EployeeSlice.js';
+import {useCreateEmployeeMutation} from '../../../ReduxImpl/Reducers/EmployeeSlice.js';
 
 const EmployeeSchema = object().shape({
   first_name: string().min(2).max(30).required('Field is required'),
