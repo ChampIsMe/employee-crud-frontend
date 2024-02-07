@@ -32,8 +32,8 @@ const EmployeeSchema = object().shape({
     seniority: string().required('Field is required')
   })).min(1, 'At least one skill is required').max(5, 'Max of 5 skills are required').required('At least one skill is required')
 });
-const EmployeeForm = ({ toggle }) => {
-  const  [createEmployee]  = useCreateEmployeeMutation()
+const EmployeeForm = ({ toggle, employee }) => {
+  const [createEmployee] = useCreateEmployeeMutation()
   const { control, register, handleSubmit, formState } = useForm({
     resolver: yupResolver(EmployeeSchema),
     defaultValues: { skills: [{ skill: '', yrs: '', seniority: '', id: uuidV4() }] }

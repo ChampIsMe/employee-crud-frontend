@@ -1,27 +1,132 @@
 [
   {
+    "id": 1,
     "first_name": "Philip",
     "last_name": "Okinyi",
-    "contact_number": "+27715153701"
+    "contact_number": "+27715153701",
+    "skills": [
+      {
+        "skill": "Java",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "111"
+      },
+      {
+        "skill": "React",
+        "yrs": "7",
+        "seniority": "Expert",
+        "id": "222"
+      },
+      {
+        "skill": "Node.js",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "333"
+      }
+    ]
   },
   {
+    "id": 2,
     "first_name": "Buyisile",
     "last_name": "Nkwebana",
-    "contact_number": "+27715153702"
+    "contact_number": "+27715153702",
+    "skills": [
+      {
+        "skill": "Java",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "111"
+      },
+      {
+        "skill": "React",
+        "yrs": "7",
+        "seniority": "Expert",
+        "id": "222"
+      },
+      {
+        "skill": "Node.js",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "333"
+      }
+    ]
   },
   {
+    "id": 3,
     "first_name": "Monique",
     "last_name": "Moca",
-    "contact_number": "+27715153703"
+    "contact_number": "+27715153703",
+    "skills": [
+      {
+        "skill": "Java",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "111"
+      },
+      {
+        "skill": "React",
+        "yrs": "7",
+        "seniority": "Expert",
+        "id": "222"
+      },
+      {
+        "skill": "Node.js",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "333"
+      }
+    ]
   },
   {
+    "id": 3,
     "first_name": "Obinna",
     "last_name": "Madue",
-    "contact_number": "+27715153709"
+    "contact_number": "+27715153709",
+    "skills": [
+      {
+        "skill": "Java",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "111"
+      },
+      {
+        "skill": "React",
+        "yrs": "7",
+        "seniority": "Expert",
+        "id": "222"
+      },
+      {
+        "skill": "Node.js",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "333"
+      }
+    ]
   },
   {
+    "id": 5,
     "first_name": "Xante",
     "last_name": "Greyvenstein",
-    "contact_number": "+27715153705"
+    "contact_number": "+27715153705",
+    "skills": [
+      {
+        "skill": "Java",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "111"
+      },
+      {
+        "skill": "React",
+        "yrs": "7",
+        "seniority": "Expert",
+        "id": "222"
+      },
+      {
+        "skill": "Node.js",
+        "yrs": "8",
+        "seniority": "Expert",
+        "id": "333"
+      }
+    ]
   }
 ]

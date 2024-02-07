@@ -27,12 +27,7 @@ const router = createBrowserRouter([
       {
         path: '/app/employees/:employeeId',
         element: <EmployeeDetails/>,
-        loader: ({ params: { employeeId } }) => {
-          if (!employeeId || !Number.isNaN(employeeId)) {
-            return redirect('/app/employees');
-          }
-          return null;
-        },
+        
         errorElement: <ErrorPage/>
       },
       {
