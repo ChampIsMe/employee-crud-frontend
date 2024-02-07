@@ -1,19 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import EmployeeListHeader from './EmployeeListHeader.jsx';
 import EmployeeListItem from './EmployeeListItem.jsx';
-import {useGetEmployeesQuery} from '../../ReduxImpl/Reducers/EployeeSlice.js';
-import sampleList from './SampleEmployeeData.json'
-import {useNavigate} from 'react-router-dom';
+import {useOutletContext} from 'react-router-dom';
 
 const EmployeeList = () => {
-  const navigate = useNavigate()
-  //Use sample list before API is integrated
-  const { data: employees = sampleList, isSuccess, isError, isLoading } = useGetEmployeesQuery()
-  useEffect(() => {
-    if (isSuccess && !employees[0]) {
-      navigate('/app/employees/empty', { replace: true })
-    }
-  }, [isSuccess]);
+  const { employees, isSuccess, isError, isLoading } = useOutletContext();
   return (
     <div className={'h-screen overflow-hidden flex flex-col items-center px-4 w-full'}>
       <div className={'xs:w-full md:w-[85%] lg:w-[70%] overflow-y-auto overscroll-y-contain'}>

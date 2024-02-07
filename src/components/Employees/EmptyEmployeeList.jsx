@@ -1,19 +1,16 @@
 import React, {useEffect} from 'react';
 import EmptyEmployeeListHeader from './EmptyEmployeeListHeader.jsx';
 import Icon from '../../assets/images/Icon.JPG?url';
-import sampleList from './SampleEmployeeData.json';
-import {useGetEmployeesQuery} from '../../ReduxImpl/Reducers/EployeeSlice.js';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useOutletContext} from 'react-router-dom';
 
 const EmptyEmployeeList = () => {
   const navigate = useNavigate()
-  const { data: employees = sampleList, isSuccess, isError, isLoading } = useGetEmployeesQuery()
+  const { employees, isSuccess, isError, isLoading } = useOutletContext();
   useEffect(() => {
-    //todo: replace && with || operator below. It's left as such to hello view the page when there is no integration
-    if (isSuccess && employees[0]) {
+    if (employees[0]) {
       navigate('/app/employees', { replace: true })
     }
-  }, [isSuccess]);
+  }, [employees]);
   return (
     <div className={'h-screen overflow-hidden flex flex-col items-center px-4 w-full'}>
       <div className={'xs:w-full md:w-[85%] lg:w-[70%] overflow-y-auto overscroll-y-contain'}>

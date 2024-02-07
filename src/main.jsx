@@ -9,14 +9,14 @@ import EmployeeList from './components/Employees/EmployeeList.jsx';
 import EmployeeDetails from './components/Employees/EmployeeDetails.jsx';
 import EmptyEmployeeList from './components/Employees/EmptyEmployeeList.jsx';
 import ErrorPage from './components/common/ErrorPage.jsx';
-import App from './App.jsx';
 import {PersistGate} from 'redux-persist/integration/react';
+import EmployeeHome from './components/Employees/EmployeeHome.jsx';
 
 let persistor = persistStore(store)
 const router = createBrowserRouter([
   {
     path: '/app',
-    element: <App/>,
+    element: <EmployeeHome/>,
     errorElement: <ErrorPage/>,
     children: [
       {
@@ -64,5 +64,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <RouterProvider router={router}/>
       </PersistGate>
     </Provider>
-   </React.StrictMode>
+  </React.StrictMode>
 )
