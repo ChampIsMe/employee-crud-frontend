@@ -4,7 +4,7 @@ import './index.css'
 import {store} from './ReduxImpl/store';
 import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist'
-import {createBrowserRouter, Navigate, redirect, RouterProvider} from 'react-router-dom';
+import {createBrowserRouter, Navigate, RouterProvider} from 'react-router-dom';
 import EmployeeList from './components/Employees/EmployeeList.jsx';
 import EmployeeDetails from './components/Employees/EmployeeDetails.jsx';
 import EmptyEmployeeList from './components/Employees/EmptyEmployeeList.jsx';

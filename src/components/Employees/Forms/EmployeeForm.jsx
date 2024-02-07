@@ -36,7 +36,7 @@ const EmployeeForm = ({ toggle, employee }) => {
   const [createEmployee] = useCreateEmployeeMutation()
   const { control, register, handleSubmit, formState } = useForm({
     resolver: yupResolver(EmployeeSchema),
-    defaultValues: { skills: [{ skill: '', yrs: '', seniority: '', id: uuidV4() }] }
+    defaultValues: { skills: [{ skill: '', yrs: '', seniority: '', id: uuidV4() }], ...employee }
   })
   const { fields, append, remove } = useFieldArray({
     name: "skills",
