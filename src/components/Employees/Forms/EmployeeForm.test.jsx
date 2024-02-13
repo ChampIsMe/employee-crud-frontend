@@ -1,4 +1,4 @@
-import {afterEach, beforeAll, describe, it} from 'vitest';
+import {afterEach, beforeAll, describe, it,vi,expect} from 'vitest';
 import {render, screen} from '@testing-library/react';
 import EmployeeForm from './EmployeeForm.jsx';
 
@@ -52,9 +52,9 @@ describe('EmployeeForm', () => {
   })
   it('should autofill all provided default values', () => {
     const defaultValues = {
-      "first_name": "Philip",
-      "last_name": "Okinyi",
-      "contact_number": "+27715153701"
+      "firstName": "Philip",
+      "lastName": "Okinyi",
+      "contactNumber": "+27715153701"
     }
     render(<EmployeeForm employee={defaultValues}/>)
     //Only a few fields are used to demonstrate

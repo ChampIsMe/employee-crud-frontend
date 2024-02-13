@@ -1,4 +1,4 @@
-import {beforeAll, afterEach,describe, it} from 'vitest';
+import {afterEach, beforeAll, describe, expect, it, vi} from 'vitest';
 import {render, screen} from '@testing-library/react';
 import ErrorPage from './ErrorPage.jsx';
 

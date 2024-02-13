@@ -17,14 +17,14 @@ import {v4 as uuidV4} from 'uuid';
 import {useCreateEmployeeMutation} from '../../../ReduxImpl/Reducers/EmployeeSlice.js';
 
 const EmployeeSchema = object().shape({
-  first_name: string().min(2).max(30).required('Field is required'),
-  last_name: string().min(2).max(30).required('Field is required'),
-  contact_number: string().max(12).matches(/^[0-9]/, { message: 'Invalid postal code' }).required(),
+  firstName: string().min(2).max(30).required('Field is required'),
+  lastName: string().min(2).max(30).required('Field is required'),
+  contactNumber: string().max(12).matches(/^[0-9]/, { message: 'Invalid postal code' }).required(),
   email: string().max(100).email('Please enter a valid email address').required(),
   dob: date().max(new Date()).required('Field is required'),
   address: string().max(200).required('Field is required'),
   city: string().max(100).required('Field is required'),
-  postal_code: string().trim().matches(/^[0-9]/, { message: 'Invalid postal code' }).required('Field is required'),
+  postalCode: string().trim().matches(/^[0-9]/, { message: 'Invalid postal code' }).required('Field is required'),
   country: string().max(100).required('Field is required'),
   skills: array().of(yup.object({
     skill: string().required('Field is required'),
@@ -36,7 +36,11 @@ const EmployeeForm = ({ toggle, employee }) => {
   const [createEmployee] = useCreateEmployeeMutation()
   const { control, register, handleSubmit, formState } = useForm({
     resolver: yupResolver(EmployeeSchema),
-    defaultValues: { skills: [{ skill: '', yrs: '', seniority: '', id: uuidV4() }], ...employee }
+    defaultValues: {
+      skills: employee ? employee.employeeExperiences.map(item => ({ skill: item.skill.name, yrs: item.yrs, seniority: item.seniority, id: item.skill.id })) :
+        [{ skill: '', yrs: '', seniority: '', id: uuidV4() }],
+      ...employee
+    }
   })
   const { fields, append, remove } = useFieldArray({
     name: "skills",
@@ -54,14 +58,14 @@ const EmployeeForm = ({ toggle, employee }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <p className={'text-primary font-semibold'}>Basic Info</p>
         <div className={'flex lg:flex-row gap-4 xs:flex-col'}>
-          <TextInput id={'first_name'} rootClasses={'lg:w-1/3 xs:w-full'}
+          <TextInput id={'firstName'} rootClasses={'lg:w-1/3 xs:w-full'}
                      type={'text'}
                      formState={formState}
                      required={true}
                      label={'First Name'}
                      placeHolder={'John'}
                      register={register}/>
-          <TextInput id={'last_name'}
+          <TextInput id={'lastName'}
                      formState={formState}
                      type={'text'}
                      required={true}
@@ -70,7 +74,7 @@ const EmployeeForm = ({ toggle, employee }) => {
                      register={register}
                      rootClasses={'flex-1'}/>
         </div>
-        <TextInput id={'contact_number'}
+        <TextInput id={'contactNumber'}
                    formState={formState}
                    type={'text'}
                    required={true}
@@ -108,7 +112,7 @@ const EmployeeForm = ({ toggle, employee }) => {
                      label={'City'}
                      placeHolder={'Cape Town'}
                      register={register}/>
-          <TextInput id={'postal_code'}
+          <TextInput id={'postalCode'}
                      formState={formState}
                      rootClasses={'lg:flex-1 xs:w-full'}
                      type={'text'}

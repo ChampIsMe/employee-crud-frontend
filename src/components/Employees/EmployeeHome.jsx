@@ -10,9 +10,8 @@ import {useGetEmployeesQuery} from '../../ReduxImpl/Reducers/EmployeeSlice.js';
 const EmployeeHome = () => {
   const { isDarkMode, changeTheme } = useAppTheme();
   const navigate = useNavigate()
-  //Use sample list before API is integrated
-  const { data: employees = sampleList, isSuccess, isError, isLoading } = useGetEmployeesQuery()
-  //todo: delete data in SampleEmployeeData.json to view the page when there is no API integration
+  // Uncomment the code below if you want to test without API data
+  const { data: employees /*= sampleList*/, isSuccess, isError, isLoading } = useGetEmployeesQuery()
   useEffect(() => {
     if (!employees[0]) {
       navigate('/app/employees/empty', { replace: true })

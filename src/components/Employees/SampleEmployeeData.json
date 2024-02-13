@@ -1,131 +1,141 @@
 [
   {
     "id": 1,
-    "first_name": "Philip",
-    "last_name": "Okinyi",
-    "contact_number": "+27715153701",
-    "skills": [
+    "firstName": "Philip",
+    "lastName": "Okinyi",
+    "contactNumber": "+27715153701",
+    "email": "po@example.com",
+    "empId": 7046,
+    "dob": "2023-11-30",
+    "address": "Long Street, Apt 404",
+    "city": "Cape Town",
+    "postalCode": "00100",
+    "country": "South Africa",
+    "createdAt": "2024-02-13T19:18:20.82989",
+    "updatedAt": "2024-02-13T19:18:20.82989",
+    "employeeExperiences": [
       {
-        "skill": "Java",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "111"
-      },
-      {
-        "skill": "React",
-        "yrs": "7",
-        "seniority": "Expert",
-        "id": "222"
-      },
-      {
-        "skill": "Node.js",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "333"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "first_name": "Buyisile",
-    "last_name": "Nkwebana",
-    "contact_number": "+27715153702",
-    "skills": [
-      {
-        "skill": "Java",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "111"
-      },
-      {
-        "skill": "React",
-        "yrs": "7",
-        "seniority": "Expert",
-        "id": "222"
-      },
-      {
-        "skill": "Node.js",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "333"
+        "skill": {
+          "id": 1,
+          "name": "Java",
+          "createdAt": "2024-02-13T19:18:20.797359",
+          "updatedAt": "2024-02-13T19:18:20.797359"
+        },
+        "id": 1,
+        "yrs": "8+",
+        "seniority": "Expert"
       }
     ]
   },
   {
     "id": 3,
-    "first_name": "Monique",
-    "last_name": "Moca",
-    "contact_number": "+27715153703",
-    "skills": [
+    "firstName": "Buyisile",
+    "lastName": "Nkwebana",
+    "contactNumber": "+27715153702",
+    "email": "Buyisile@example.com",
+    "empId": 2600,
+    "dob": "2023-11-30",
+    "address": "Long Street, Apt 404",
+    "city": "Cape Town",
+    "postalCode": "00100",
+    "country": "South Africa",
+    "createdAt": "2024-02-13T19:23:07.607211",
+    "updatedAt": "2024-02-13T19:23:07.607211",
+    "employeeExperiences": [
       {
-        "skill": "Java",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "111"
-      },
-      {
-        "skill": "React",
-        "yrs": "7",
-        "seniority": "Expert",
-        "id": "222"
-      },
-      {
-        "skill": "Node.js",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "333"
+        "skill": {
+          "id": 1,
+          "name": "Java",
+          "createdAt": "2024-02-13T19:18:20.797359",
+          "updatedAt": "2024-02-13T19:18:20.797359"
+        },
+        "id": 2,
+        "yrs": "8+",
+        "seniority": "Expert"
       }
     ]
   },
   {
-    "id": 3,
-    "first_name": "Obinna",
-    "last_name": "Madue",
-    "contact_number": "+27715153709",
-    "skills": [
+    "id": 4,
+    "firstName": "Monique",
+    "lastName": "Moca",
+    "contactNumber": "+27715153703",
+    "email": "Monique@example.com",
+    "empId": 1249,
+    "dob": "2023-11-30",
+    "address": "Long Street, Apt 404",
+    "city": "Cape Town",
+    "postalCode": "00100",
+    "country": "South Africa",
+    "createdAt": "2024-02-13T19:35:19.434218",
+    "updatedAt": "2024-02-13T19:35:19.434218",
+    "employeeExperiences": [
       {
-        "skill": "Java",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "111"
-      },
-      {
-        "skill": "React",
-        "yrs": "7",
-        "seniority": "Expert",
-        "id": "222"
-      },
-      {
-        "skill": "Node.js",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "333"
+        "skill": {
+          "id": 2,
+          "name": "React",
+          "createdAt": "2024-02-13T19:35:19.340597",
+          "updatedAt": "2024-02-13T19:35:19.340597"
+        },
+        "id": 3,
+        "yrs": "8+",
+        "seniority": "Expert"
       }
     ]
   },
   {
     "id": 5,
-    "first_name": "Xante",
-    "last_name": "Greyvenstein",
-    "contact_number": "+27715153705",
-    "skills": [
+    "firstName": "Obinna",
+    "lastName": "Madue",
+    "contactNumber": "+27715153709",
+    "email": "Madue@example.com",
+    "empId": 7847,
+    "dob": "2023-11-30",
+    "address": "Long Street, Apt 404",
+    "city": "Cape Town",
+    "postalCode": "00100",
+    "country": "South Africa",
+    "createdAt": "2024-02-13T19:36:52.121991",
+    "updatedAt": "2024-02-13T19:36:52.121991",
+    "employeeExperiences": [
       {
-        "skill": "Java",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "111"
-      },
+        "skill": {
+          "id": 2,
+          "name": "React",
+          "createdAt": "2024-02-13T19:35:19.340597",
+          "updatedAt": "2024-02-13T19:35:19.340597"
+        },
+        "id": 4,
+        "yrs": "8+",
+        "seniority": "Expert"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "firstName": "Xante",
+    "lastName": "Greyvenstein",
+    "contactNumber": "+27715153705",
+    "email": "Xante@example.com",
+    "empId": 6430,
+    "dob": "2023-11-30",
+    "address": "Long Street, Apt 404",
+    "city": "Cape Town",
+    "postalCode": "00100",
+    "country": "South Africa",
+    "createdAt": "2024-02-13T20:15:29.101028",
+    "updatedAt": "2024-02-13T20:15:29.101028",
+    "employeeExperiences": [
       {
-        "skill": "React",
-        "yrs": "7",
-        "seniority": "Expert",
-        "id": "222"
-      },
-      {
-        "skill": "Node.js",
-        "yrs": "8",
-        "seniority": "Expert",
-        "id": "333"
+        "skill": {
+          "id": 3,
+          "name": "Python",
+          "createdAt": "2024-02-13T20:15:29.085684",
+          "updatedAt": "2024-02-13T20:15:29.085684"
+        },
+        "id": 5,
+        "yrs": "8+",
+        "seniority": "Expert"
       }
     ]
   }

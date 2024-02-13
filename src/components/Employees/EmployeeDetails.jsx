@@ -23,17 +23,17 @@ const EmployeeDetails = () => {
             <div className="flex-grow text-center md:text-left">
               <div className={'flex flex-row w-full justify-between'}>
                 <div className={'flex-grow'}>
-                  <p className="font-bold dark:text-white">{`${employee.first_name} ${employee.last_name}`}</p>
-                  <h3 className="text-xl heading dark:text-white">{`${employee.contact_number}`}</h3>
+                  <p className="font-bold dark:text-white">{`${employee.firstName} ${employee.lastName}`}</p>
+                  <h3 className="text-xl heading dark:text-white">{`${employee.contactNumber}`}</h3>
                 </div>
                 <IconButton onClick={toggle} icon={<MdEdit size={20}/>}/>
               </div>
-              <p className="mt-2 mb-4 dark:text-white text-sm">{`${employee.first_name} ${employee.last_name}`} is a Software Developer, mainly works
-                with {employee?.skills.map(item => item.skill).join(', ')} technologies.</p>
+              <p className="mt-2 mb-4 dark:text-white text-sm">{`${employee.firstName} ${employee.lastName}`} is a Software Developer, mainly works
+                with {employee?.employeeExperiences.map(item => item.skill.name).join(', ')} technologies.</p>
               <p className="mt-2 mb-4 dark:text-secondary font-bold">Experience per skill:</p>
               <div className={'space-x-2'}>
-                {employee?.skills.map((item, index) => <span key={index}
-                                                             className="dark:text-white font-semibold dark:bg-gray-700 px-3 py-2 rounded-lg text-sm">{`${item.skill} (${item.yrs} yrs)`}</span>)}
+                {employee?.employeeExperiences.map((item, index) => <span key={index}
+                                                             className="dark:text-white font-semibold dark:bg-gray-700 px-3 py-2 rounded-lg text-sm">{`${item.skill.name} (${item.yrs} yrs)`}</span>)}
               </div>
             </div>
           </div>

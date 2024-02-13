@@ -10,9 +10,9 @@ const EmployeeListItem = ({ employee }) => {
          }}>
       <div className={'dark:text-white aspect-square rounded-[50%] flex flex-row justify-center items-center w-8 h-8 border-primary border-2'}>
         <p className={'p-2 '}>{employee.id}</p></div>
-      <p className={'dark:text-white md:flex-1'}>{employee.first_name}</p>
-      <p className={'dark:text-white md:flex-1'}>{employee.last_name}</p>
-      <p className={'dark:text-white md:flex-1'}>{employee.contact_number}</p>
+      <p className={'dark:text-white md:flex-1'}>{employee.firstName}</p>
+      <p className={'dark:text-white md:flex-1'}>{employee.lastName}</p>
+      <p className={'dark:text-white md:flex-1'}>{employee.contactNumber}</p>
     </div>
   );
 };
