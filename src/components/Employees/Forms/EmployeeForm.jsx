@@ -15,11 +15,12 @@ import IconButton from '../../common/IconButton.jsx';
 import {RiDeleteBin6Fill} from 'react-icons/ri';
 import {v4 as uuidV4} from 'uuid';
 import {useCreateEmployeeMutation} from '../../../ReduxImpl/Reducers/EmployeeSlice.js';
+import {errMsg, getToastId, updateToast} from '../../../ReduxImpl/Reducers/reducerUtils.js';
 
 const EmployeeSchema = object().shape({
   firstName: string().min(2).max(30).required('Field is required'),
   lastName: string().min(2).max(30).required('Field is required'),
-  contactNumber: string().max(12).matches(/^[0-9]/, { message: 'Invalid postal code' }).required(),
+  contactNumber: string().max(12).matches(/^[+][0-9]/, { message: 'Invalid postal code' }).required(),
   email: string().max(100).email('Please enter a valid email address').required(),
   dob: date().max(new Date()).required('Field is required'),
   address: string().max(200).required('Field is required'),
@@ -48,10 +49,17 @@ const EmployeeForm = ({ toggle, employee }) => {
     control
   });
   const onSubmit = async (data) => {
-    //todo: Implement API
-    console.log(data)
-    await createEmployee(data)
-    toggle()
+    const toastId = getToastId('Creating employee')
+    try {
+      await createEmployee({
+        ...data, skills: data.skills.map(item => ({ skill: item.skill, yrs: item.yrs, seniority: item.seniority }))
+      })
+      toggle()
+      updateToast(toastId, 'Employee created successfully', true)
+    } catch (e) {
+      console.error(e)
+      updateToast(errMsg(e, false, employee), 'Unable to create employee', false)
+    }
   };
   return (
     <div className={'w-full py-4'}>

@@ -32,7 +32,7 @@ export const updateToast = (toastId, msg, success) => {
     toast.dismiss(toastId)
     return
   }
-  toast.update(toastId, { render: msg, type: toast.TYPE[success ? 'SUCCESS' : 'ERROR'], autoClose: 10000 });
+  toast.update(toastId, { render: msg, type: success ? 'success' : 'error', autoClose: 10000 });
 }
 export const getToastId = (msg) => toast(msg, {type: "info", autoClose: false})
 export const dismissToast = (id) => toast.dismiss(id)
