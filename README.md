@@ -1,8 +1,20 @@
-# React + Vite
+## This is a React frontend for [Employee CRUD backend](https://github.com/ChampIsMe/employee-crud-backend ).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Features demonstrated:
 
-Currently, two official plugins are available:
+- [ ] **React redux**
+- [ ] CRUD.(Delete is demonstrated in the API docs)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Info:
+- There is minimal test for demonstration due to more effort required in the resto of the app.
+
+## Requirements & Tools used.
+
+- [ ] React ```18.2.0```
+- [ ] Node.js ```18.18.2```
+- [ ] npm ```10.2.5```
+- [ ] M1 (Apple Silicon) OS environment.
+### How to run
+
+```npm dev```
+
