@@ -9,7 +9,7 @@ export const EmployeeSlice = createApi({
   tagTypes: ["Employees"],
   endpoints: (builder) => ({
     getEmployees: builder.query({
-      query: () => "/employee/list",
+      query: (params) => `/employee/list?${new URLSearchParams(params).toString()}`,
       providesTags: ["Employees"]
     }),
     createEmployee: builder.mutation({
