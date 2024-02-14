@@ -5,6 +5,7 @@ import {Outlet, useNavigate} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {useGetEmployeesQuery} from '../../ReduxImpl/Reducers/EmployeeSlice.js';
+import sampleList from './SampleEmployeeData.json'
 
 const EmployeeHome = () => {
   useAppTheme();
@@ -14,7 +15,7 @@ const EmployeeHome = () => {
   const { data: employees /*= sampleList*/, isSuccess, isError, isLoading } = useGetEmployeesQuery(queryParams)
   useEffect(() => {
     //Only navigate when employee is not empty due to empty filter result
-    if (!employees[0] && queryParams && Object.keys(queryParams).length === 0) {
+    if (!employees[0] && (!queryParams || Object.keys(queryParams).length === 0)) {
       navigate('/app/employees/empty', { replace: true })
     }
   }, [isSuccess]);
